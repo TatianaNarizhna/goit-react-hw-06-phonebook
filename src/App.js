@@ -11,8 +11,7 @@ export default function App() {
 
   const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
-  console.log(contacts)
-
+  
    const formSubmit = (data) => {
     console.log(data);
     // const { contacts } = this.state;
