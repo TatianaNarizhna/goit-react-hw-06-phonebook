@@ -30,9 +30,9 @@ export default function App() {
     setContacts((prevState) => [...prevState, contactData]);
   };
 
-   const deleteItem = listId => {
-    setContacts(state => state.filter(contact => contact.id !== listId))
-  };
+  //  const deleteItem = listId => {
+  //   setContacts(state => state.filter(contact => contact.id !== listId))
+  // };
 
    const changeFilter = e => {
     setFilter(e.currentTarget.value);
@@ -55,7 +55,7 @@ export default function App() {
         <PhonebookList
           contacts={getVisibleContacts()}
           title="Contacts"
-          onDeleteList={deleteItem}
+          // onDeleteList={deleteItem}
         />
       </Container>
     );

@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from 'react-redux';
+import actions from '../../redux/actions';
 import PhoneBookItem from "../PhonebookItem/PhoneBookItem";
 import PropTypes from "prop-types";
+
 // import s from "./PhonebookList.module.css";
 
 const PhonebookList = ({ contacts, title, onDeleteList }) => {
@@ -27,4 +30,17 @@ PhonebookList.propTypes = {
   onDeleteList: PropTypes.func.isRequired,
 };
 
-export default PhonebookList;
+
+
+const mapStateToProps = (state) => ({
+  contacts: state.contacts.items,
+})
+
+const mapDispatchToProps = dispatch => ({
+  onDeleteList: (id) => dispatch(actions.deleteItem(id))
+})
+  
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhonebookList);

@@ -1,12 +1,12 @@
 export default {
-    ADD_NAME:'inputForm/Name',
-    ADD_NUMBER:'inputForm/Number',
-    ADD_CONTACT:'addContact/Contacts',
+    ADD_NAME:'Name/addName',
+    ADD_NUMBER:'Number/addNumber',
+    ADD_CONTACT:'Contacts/addContacts',
     FORM_RESET:'inputForm/Reset',
     FORM_SUBMIT:'inputForm/Submit',
-    DELETE_ITEM:'delete/Contacts',
-    CHANGE_FILTER:'change/Filter',
-    GET_VISIBLE_CONTACTS:'getContacts/ContactList',
+    DELETE_ITEM:'contacts/delete',
+    CHANGE_FILTER:'filter/change',
+    GET_VISIBLE_CONTACTS:'contactList/getContacts',
 };
 
 // const ADD_NAME = 'inputForm/Name';

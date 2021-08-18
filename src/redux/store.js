@@ -6,17 +6,17 @@ const rootReducer = combineReducers({
     contacts: contactsReducer, 
 })
 
-const initialState = {
-    name: '',
-    number: '',
-}
-
 // const initialState = {
-//     contacts: {
-//       items: [],
-//       filter: '',
-//     }
-//   }
+//     name: '',
+//     number: '',
+// }
+
+const initialState = {
+    contacts: {
+      items: [],
+      filter: '',
+    }
+  }
 
 // const reducer = (state = initialState, { type, payload }) => state;
 
