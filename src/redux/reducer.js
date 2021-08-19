@@ -4,7 +4,7 @@ import types from './types';
   const items = (state = [], { type, payload }) => {
       switch (type) {
           case types.ADD_CONTACT:
-              return [...state, payload];
+              return [...state, payload ];
 
               case types.DELETE_ITEM:
                   return state.filter(contact => contact.id !== payload);
@@ -17,6 +17,11 @@ import types from './types';
   const filter = (state = '', action) => {
     return state;
 }
+
+// const addContactsReducer = (state = [], { type, payload }) => {
+//     if(type === types.ADD_CONTACT) {
+//         return [...state, payload];
+// }
 
 export default combineReducers({
     items,

@@ -5,8 +5,9 @@ const inputValue = (name, value) => {
 
 }
 
-const addContact = (data) => ({
+const addContact = data => ({
         type: types.ADD_CONTACT,
+        // payload: data,
         payload: {
           id: uuidv4(),
           name: data.name,
@@ -20,5 +21,13 @@ const deleteItem = listId => ({
     payload: listId,
 })
 
+const changeFilter = e => ({
+    type: types.CHANGE_FILTER,
+    payload: e,
+})
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { addContact, deleteItem };
+export default { addContact, deleteItem, changeFilter };
+
+// eslint-disable-next-line import/no-anonymous-default-export
+// export default { addContact, deleteItem };

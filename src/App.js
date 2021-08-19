@@ -1,20 +1,26 @@
 // import React, { Component } from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+// import * as actions from '../../redux/actions'
 import Container from "./components/Container/Container";
 import Input from "./components/ContactForm/InputForm";
 import Filter from "./components/Filter/Filter";
 import PhonebookList from "./components/PhonebookList/PhonebookList";
 import useLocalStorage from './hooks/useLocalStorage';
 
-export default function App() {
 
-  const [contacts, setContacts] = useLocalStorage('contacts', []);
+  function App() {
+
+    
+    const [contacts, setContacts] = useLocalStorage('contacts', []);
+   
+
   const [filter, setFilter] = useState('');
   
+  /*  
    const formSubmit = (data) => {
     console.log(data);
-    // const { contacts } = this.state;
+   
     const newContact = contacts.some((contact) => contact.name === data.name);
     if (newContact) {
       alert(`${data.name} is already in contacts`);
@@ -29,6 +35,8 @@ export default function App() {
 
     setContacts((prevState) => [...prevState, contactData]);
   };
+   */ 
+
 
   //  const deleteItem = listId => {
   //   setContacts(state => state.filter(contact => contact.id !== listId))
@@ -50,15 +58,22 @@ export default function App() {
     return (
       <Container>
         <h1>Phonebook</h1>
-        <Input onFormSubmit={formSubmit} />
+        <Input  /*onFormSubmit={formSubmit}*/ />
         <Filter value={filter} onChangeFilter={changeFilter} />
         <PhonebookList
-          contacts={getVisibleContacts()}
+          // contacts={getVisibleContacts()}
           title="Contacts"
           // onDeleteList={deleteItem}
         />
       </Container>
     );
 }
+
+
+
+
+
+
+export default App;
 
 

@@ -11,12 +11,12 @@ const rootReducer = combineReducers({
 //     number: '',
 // }
 
-const initialState = {
-    contacts: {
-      items: [],
-      filter: '',
-    }
-  }
+
+    // const contacts = {
+    //   items: [],
+    //   filter: '',
+    // }
+  
 
 // const reducer = (state = initialState, { type, payload }) => state;
 
