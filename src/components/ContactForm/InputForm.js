@@ -30,10 +30,18 @@ import s from "./InputForm.module.css";
 
    const addContact = (e) => {
     e.preventDefault();
+    // const { name, number } = e.target;
 
     onFormSubmit({ name: name, number: number, contactId: contactId});
+    
     formReset();
   };
+
+  // const newContact = contacts.some((contact) => contact.name === data.name);
+  // if (newContact) {
+  //   alert(`${data.name} is already in contacts`);
+  //   return;
+  // }
 
    const formReset = () => {
     setName('');
