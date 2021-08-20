@@ -1,10 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import types from './types';
 
-const inputValue = (name, value) => {
-
-}
-
 const addContact = data => ({
         type: types.ADD_CONTACT,
         // payload: data,
@@ -21,9 +17,9 @@ const deleteItem = listId => ({
     payload: listId,
 })
 
-const changeFilter = e => ({
+const changeFilter = value => ({
     type: types.CHANGE_FILTER,
-    payload: e,
+    payload: value,
 })
 
 // eslint-disable-next-line import/no-anonymous-default-export

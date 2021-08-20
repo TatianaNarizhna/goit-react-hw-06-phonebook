@@ -14,8 +14,14 @@ import types from './types';
       }
   }
 
-  const filter = (state = '', action) => {
-    return state;
+  const filter = (state = '', { type, payload }) => {
+    switch(type) {
+        case types.CHANGE_FILTER:
+            return payload;
+
+            default:
+                return state;
+    }
 }
 
 // const addContactsReducer = (state = [], { type, payload }) => {

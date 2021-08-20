@@ -73,15 +73,20 @@ import s from "./InputForm.module.css";
         </form>
       </div>
     );
-  
 }
 
+// const newContact = contacts.some((contact) => contact.name === data.name);
+// if (newContact) {
+//   alert(`${data.name} is already in contacts`);
+//   return;
+// }
+
+
 const mapDispatchToProps = dispatch => ({
+ 
   onFormSubmit: data => dispatch(contactAction.addContact(data)), 
 })
   
-
-
 export default connect(null, mapDispatchToProps)(Input);
 
 Input.propTypes = {
