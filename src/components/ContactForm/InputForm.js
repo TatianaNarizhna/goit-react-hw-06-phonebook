@@ -1,6 +1,7 @@
 // import React, { Component } from "react";
 import { useState, useRef } from "react";
 import { connect } from "react-redux";
+// import { useSelector } from 'react-redux';
 import contactAction from "../../redux/actions";
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
@@ -10,7 +11,10 @@ import s from "./InputForm.module.css";
   
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  // const contacts = useSelector(contactAction.addContact);
+  // console.log(contacts)
   const contactId = useRef(uuidv4());
+
 
    const inputValue = (e) => {
     const { name, value } = e.target;
@@ -31,10 +35,10 @@ import s from "./InputForm.module.css";
    const addContact = (e) => {
     e.preventDefault();
     // const { name, number } = e.target;
-
+  
     onFormSubmit({ name: name, number: number, contactId: contactId});
-    
     formReset();
+   
   };
 
   // const newContact = contacts.some((contact) => contact.name === data.name);
@@ -90,9 +94,14 @@ import s from "./InputForm.module.css";
 // }
 
 
+
+
+
+
 const mapDispatchToProps = dispatch => ({
  
   onFormSubmit: data => dispatch(contactAction.addContact(data)), 
+  
 })
   
 export default connect(null, mapDispatchToProps)(Input);
