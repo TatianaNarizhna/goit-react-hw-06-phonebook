@@ -1,20 +1,16 @@
-// import React, { Component } from "react";
 import { useState, useRef } from "react";
 import { connect } from "react-redux";
-// import { useSelector } from 'react-redux';
 import contactAction from "../../redux/actions";
 import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import s from "./InputForm.module.css";
 
- function Input({ onFormSubmit }) {
+ function Input({ onFormSubmit, contacts }) {
   
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  // const contacts = useSelector(contactAction.addContact);
-  // console.log(contacts)
-  const contactId = useRef(uuidv4());
 
+  const contactId = useRef(uuidv4());
 
    const inputValue = (e) => {
     const { name, value } = e.target;
@@ -34,18 +30,15 @@ import s from "./InputForm.module.css";
 
    const addContact = (e) => {
     e.preventDefault();
-    // const { name, number } = e.target;
-  
-    onFormSubmit({ name: name, number: number, contactId: contactId});
-    formReset();
-   
+    const newContact = contacts.some((contact) => contact.name === name)
+    if (newContact) {
+        alert(`${name} is already in contacts`);
+        formReset();
+        return;
+      }
+      onFormSubmit({ name: name, number: number, contactId: contactId});
+      formReset();
   };
-
-  // const newContact = contacts.some((contact) => contact.name === data.name);
-  // if (newContact) {
-  //   alert(`${data.name} is already in contacts`);
-  //   return;
-  // }
 
    const formReset = () => {
     setName('');
@@ -87,24 +80,15 @@ import s from "./InputForm.module.css";
     );
 }
 
-// const newContact = contacts.some((contact) => contact.name === data.name);
-// if (newContact) {
-//   alert(`${data.name} is already in contacts`);
-//   return;
-// }
-
-
-
-
-
+const mapStateToProps = (state) => ({
+  contacts: state.contacts.items,
+ })
 
 const mapDispatchToProps = dispatch => ({
- 
   onFormSubmit: data => dispatch(contactAction.addContact(data)), 
-  
 })
   
-export default connect(null, mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Input);
 
 Input.propTypes = {
   onFormSubmit: PropTypes.func.isRequired,

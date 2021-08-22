@@ -32,8 +32,6 @@ const rootReducer = combineReducers({
   contacts: persistReducer(contactsPersistConfig, contactsReducer),
 });
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 const store = configureStore({
     reducer: rootReducer,
     middleware,
@@ -45,14 +43,5 @@ const persistor = persistStore(store);
 // eslint-disable-next-line import/no-anonymous-default-export
 export default { store, persistor };
 
-// const rootReducer = combineReducers({
-//     contacts: contactsReducer, 
-// })
 
-    //  contacts  {
-    //   items: [],
-    //   filter: '',
-    // }
-
-// const store = createStore(rootReducer, composeWithDevTools());
 

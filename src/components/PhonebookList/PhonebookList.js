@@ -1,12 +1,17 @@
 import React from "react";
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import  deleteItem  from '../../redux/actions';
 import PhoneBookItem from "../PhonebookItem/PhoneBookItem";
-import PropTypes from "prop-types";
+import { getVisibleContacts } from "../../redux/contacts-selector";
+// import PropTypes from "prop-types";
 
-// import s from "./PhonebookList.module.css";
+const PhonebookList = ({ title }) => {
+  const contacts = useSelector(getVisibleContacts);
+  const dispatch = useDispatch();
 
-const PhonebookList = ({ contacts, title, onDeleteList }) => {
+  const onDeleteList = id => dispatch(deleteItem.deleteItem(id));
+
   return (
     <div>
       <h2>{title}</h2>
@@ -25,31 +30,35 @@ const PhonebookList = ({ contacts, title, onDeleteList }) => {
 };
 
 
-const getVisibleContacts = (contacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
+export default PhonebookList;
 
-  return contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
-};
+// ***
+// const getVisibleContacts = (contacts, filter) => {
+//   const normalizedFilter = filter.toLowerCase();
 
-const mapStateToProps = (state) => {
- const { filter, items } = state.contacts;
- const visibleContacts = getVisibleContacts(items, filter);
+//   return contacts.filter((contact) =>
+//     contact.name.toLowerCase().includes(normalizedFilter)
+//   );
+// };
 
- return {
-  contacts: visibleContacts,
- }
-}
+// const mapStateToProps = (state) => {
+//  const { filter, items } = state.contacts;
+//  const visibleContacts = getVisibleContacts(items, filter);
+
+//  return {
+//   contacts: visibleContacts,
+//  }
+// }
   
-const mapDispatchToProps = dispatch => ({
-  onDeleteList: (id) => dispatch(deleteItem.deleteItem(id))
-})
+// const mapDispatchToProps = dispatch => ({
+//   onDeleteList: (id) => dispatch(deleteItem.deleteItem(id))
+// })
 
-PhonebookList.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  title: PropTypes.string.isRequired,
-  onDeleteList: PropTypes.func.isRequired,
-};
+// PhonebookList.propTypes = {
+//   contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   title: PropTypes.string.isRequired,
+//   onDeleteList: PropTypes.func.isRequired,
+// };
+
   
-export default connect(mapStateToProps, mapDispatchToProps)(PhonebookList);
+// export default connect(mapStateToProps, mapDispatchToProps)(PhonebookList);

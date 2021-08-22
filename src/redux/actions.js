@@ -1,6 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-// import types from './types';
 
 const addContact = createAction('contact/addContact', data => {
     return {
@@ -18,6 +17,7 @@ const changeFilter = createAction('filter/change');
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default { addContact, deleteItem, changeFilter };
+
 
 // const addContact = data => ({
 //         type: types.ADD_CONTACT,
